@@ -70,7 +70,7 @@ def dia(request):
     data_formatada = datetime.strptime(data, '%Y-%m-%d')
     diarios = Diario.objects.filter(created_at__gte=data_formatada).filter(created_at__lte=data_formatada + timedelta(days=1))
 
-    return render(request, 'dia.html', {"diarios": diarios}, {"total": diarios.count()}, {"data": data})
+    return render(request, 'dia.html', {"diarios": diarios, "total": diarios.count(), "data": data})
 
 def excluir_dia(request):
     data = datetime.strptime(request.GET.get('data'), '%Y-%m-%d')
