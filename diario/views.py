@@ -76,3 +76,4 @@ def excluir_dia(request):
     data = datetime.strptime(request.GET.get('data'), '%Y-%m-%d')
     diarios = Diario.objects.filter(created_at__gte=data).filter(created_at__lte=data + timedelta(days=1))
     diarios.delete()
+    
